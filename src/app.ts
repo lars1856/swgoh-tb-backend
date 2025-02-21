@@ -11,7 +11,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false },
 });
 
-app.get("/", async (req: Request, res: Response) => {
+app.get("/", async (_req: Request, res: Response) => {
   try {
     const result = await pool.query("SELECT NOW()");
     res.json({ message: "API is running with TypeScript!", time: result.rows[0].now });
